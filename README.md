@@ -1,7 +1,7 @@
 Data contains all meassurements performed up until this point (11 February 2026)  
 Data in the 9kPa folder contains csv data files with three consolidation forces (3kPa, 6kPa & 9kPa)  
 The Folder Structure is as followed:  
-  
+```
 RheometerData/
 ├── Data/
 │   ├── Glass/
@@ -46,6 +46,7 @@ RheometerData/
 │   ├── Analysis
 │   └── Excel_Manipulation
 └── visualization
+```
 
 
 Every "final" folder contains the following files:  
