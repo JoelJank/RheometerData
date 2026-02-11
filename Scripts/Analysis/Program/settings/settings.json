@@ -1,0 +1,10 @@
+{
+    "input_file": "H:/AG Parteli/Paris/Data/rawdata/MGS/undried/MGS_undried_2runs_20250708.xlsx",
+    "skip_sheets": 1,
+    "ignore_sheets_end": 0,
+    "savgol_window_length": 5,
+    "savgol_polyorder": 2,
+    "output_folder": "H:/AG Parteli/Paris/Data/processed/MGS/undried/",
+    "title_of_experiment": "undried",
+    "plotstyle": "settings/paper.mplstyle"
+}
