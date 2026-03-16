@@ -1,16 +1,16 @@
 import pandas as pd
-import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = "H:/AG Parteli/Paris/Data/rawdata/Glass/9kPa_redo_watercontain/20251023PSC_big_modified.xlsx"
-lower_boundary = 8500
-upper_boundary = 9500
+data = "C:\\AGParteli\\RheometerData\\Data\\Glass\\90 micron\\bigcup\\w0per_3_6_15_kPa\\w0per_3_6_15_kPa_original.xlsx"
+lower_boundary = 2700
+upper_boundary = 3500
 
-df = pd.read_excel(data,  sheet_name = "W25%", 
+df = pd.read_excel(data,  sheet_name = "3kPa", 
                    header = None,
                    names = ["No","Time","Gap","Normal Force","Normal Stress","Torque","Shear Stress", "Rotational Speed"],
-                   skiprows=4).dropna()
+                   skiprows=2).dropna()
+
 
 mask = df.apply(lambda row: any(isinstance(x, str) for x in row), axis=1)
 df = df[~mask].dropna().reset_index(drop=True)
@@ -25,7 +25,7 @@ sections = [df.iloc[jumps_where[i]:jumps_where[i+1]].reset_index(drop=True) for 
 
 filtered_sections = [
     section for section in sections
-    if len(section) >= 25
+    if len(section) >= 41
     and not ((section["Normal Stress"] >= lower_boundary) & (section["Normal Stress"] <= upper_boundary)).any()
 ]
 
@@ -35,6 +35,6 @@ plt.plot(result_df["Time"]/60,result_df["Normal Stress"], color = "blue")
 plt.plot(result_df["Time"]/60, result_df["Shear Stress"], color = "red")
 plt.savefig("test.png", dpi=300)
 
-result_df.to_excel("H:/AG Parteli/Paris/Data/rawdata/Glass/9kPa_redo_watercontain/W25%.xlsx", index = False)
+result_df.to_excel("C:\\AGParteli\\RheometerData\\Data\\Glass\\90 micron\\bigcup\\w0per_3_6_15_kPa\\3kPa.xlsx", index = False)
 
 

@@ -1,10 +1,10 @@
 {
-    "input_file": "H:/AG Parteli/Paris/Data/rawdata/MGS/undried/MGS_undried_2runs_20250708.xlsx",
-    "skip_sheets": 1,
+    "input_file": "C:\\AGParteli\\RheometerData\\Data\\Glass\\230 micron\\bigcup\\w0per_3_6_15_kPa\\B\\w0per_3_6_15_kPa_B.xlsx",
+    "skip_sheets": 0,
     "ignore_sheets_end": 0,
     "savgol_window_length": 5,
     "savgol_polyorder": 2,
-    "output_folder": "H:/AG Parteli/Paris/Data/processed/MGS/undried/",
-    "title_of_experiment": "undried",
+    "output_folder": "C:\\AGParteli\\RheometerData\\Data\\Glass\\230 micron\\bigcup\\w0per_3_6_15_kPa\\B",
+    "title_of_experiment": "230 micron bigcup w0per 3 6 15 kPa B",
     "plotstyle": "settings/paper.mplstyle"
 }
