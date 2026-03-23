@@ -2,11 +2,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = "C:\\AGParteli\\RheometerData\\Data\\Glass\\90 micron\\bigcup\\w0per_3_6_15_kPa\\w0per_3_6_15_kPa_original.xlsx"
-lower_boundary = 2700
-upper_boundary = 3500
+data = "H:\\AG Parteli\\Paris\\Github\\RheometerData\\Data\\Glass\\90 micron\\smallcup\\w0per_3_6_15_kPa\\w0per_3_6_15_kPa.xlsx"
+lower_boundary = 14800
+upper_boundary = 15300
 
-df = pd.read_excel(data,  sheet_name = "3kPa", 
+df = pd.read_excel(data,  sheet_name = "15kPa", 
                    header = None,
                    names = ["No","Time","Gap","Normal Force","Normal Stress","Torque","Shear Stress", "Rotational Speed"],
                    skiprows=2).dropna()
@@ -35,6 +35,6 @@ plt.plot(result_df["Time"]/60,result_df["Normal Stress"], color = "blue")
 plt.plot(result_df["Time"]/60, result_df["Shear Stress"], color = "red")
 plt.savefig("test.png", dpi=300)
 
-result_df.to_excel("C:\\AGParteli\\RheometerData\\Data\\Glass\\90 micron\\bigcup\\w0per_3_6_15_kPa\\3kPa.xlsx", index = False)
+result_df.to_excel("H:\\AG Parteli\\Paris\\Github\\RheometerData\\Data\\Glass\\90 micron\\smallcup\\w0per_3_6_15_kPa\\15kPa.xlsx", index = False)
 
 

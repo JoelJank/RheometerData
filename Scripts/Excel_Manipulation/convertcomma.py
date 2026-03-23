@@ -3,7 +3,7 @@ import numpy as np
 import re
 
 df = pd.read_csv(
-    "C:\\AGParteli\\90micron.csv",
+    "H:\\AG Parteli\\Paris\\Github\\smallcup.csv",
     dtype=str,
     quotechar='"',
     sep=None,
@@ -43,5 +43,5 @@ for col in df.columns:
 
 df = df.dropna(how='all')
 
-output_file = "C:\\AGParteli\\RheometerData\\Data\\Glass\\90 micron\\bigcup\\w0per_3_6_15_kPa\\w0per_3_6_15_kPa_original.xlsx"
+output_file = "H:\\AG Parteli\\Paris\\Github\\smallcup_converted.xlsx"
 df.to_excel(output_file, index=False)
