@@ -39,23 +39,16 @@ def read_data(file):
     return result_df
 
 
-def split_dataframe(dataframe):
+def split_dataframe(df, name):
 
     result_dict = {}
-    names = []
-
-    for main_key, df in dataframe.items():
-
-        for sheetname in df['Sheetname'].unique():
-            filtered_df = df[df['Sheetname'] == sheetname].copy()
-
-            new_key = f"{main_key}_{sheetname}"
-
-            filtered_df.reset_index(drop = True, inplace = True)
-
-            result_dict[new_key] = filtered_df
-            names.append(new_key)
-    return result_dict, names
+    
+    for sheetname in df['Sheetname'].unique():
+        filtered_df = df[df['Sheetname'] == sheetname].copy()
+        filtered_df.reset_index(drop=True, inplace=True)
+        dictname = f"{name}_{sheetname}"
+        result_dict[dictname] = filtered_df
+    return result_dict
 
 
 
@@ -109,6 +102,28 @@ def fitting(x_data,y_data):
               }
     return results
 
+def extract_water_content(key):
+    import re
+    match = re.search(r'w(\d+\.?\d*)per|w0per', key)
+    if match:
+        if match.group(1):
+            return match.group(1)
+        else:
+            return '0'
+    if "w0per" in key:
+        return '0'
+    return None
+
+def extract_pressure(key):
+    import re
+    match = re.search(r'_(3|6|9|15)kPa$', key)
+    if match:
+        return f"{match.group(1)}kPa"
+    match = re.search(r'(3|6|9|15)kPa', key)
+    if match:
+        return f"{match.group(1)}kPa"
+    return None
+        
 
 def linfunc(a,b,x):
     return a * x + b 

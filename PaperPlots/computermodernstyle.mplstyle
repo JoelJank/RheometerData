@@ -1,11 +1,12 @@
 ### Axes
 axes.titlesize : large
-axes.labelsize : large
+axes.labelsize : 18
 axes.formatter.use_mathtext : True
 
 ### Lines
 lines.linewidth : 1.0
 lines.markersize : 10
+lines.markeredgecolor: black
 hatch.linewidth: 0.25
 
 patch.antialiased   : True
@@ -25,7 +26,7 @@ xtick.minor.top: True
 xtick.minor.bottom: True
 xtick.major.pad: 5.0
 xtick.minor.pad: 5.0
-ytick.labelsize: large
+ytick.labelsize: 16
 
 ytick.left: True
 ytick.right: True
@@ -41,7 +42,7 @@ ytick.minor.left: True
 ytick.minor.right: True
 ytick.major.pad: 5.0
 ytick.minor.pad: 5.0
-xtick.labelsize: large
+xtick.labelsize: 16
 
 ### Legend
 legend.frameon: False
@@ -57,7 +58,7 @@ figure.autolayout : False
 
 ### Fonts
 mathtext.fontset : cm
-font.family: serif
+font.family: Sans
 font.serif: cmr10
 
 ### Saving figures
