@@ -123,6 +123,12 @@ def extract_pressure(key):
     if match:
         return f"{match.group(1)}kPa"
     return None
+
+def mu_to_phi(mu):
+    return np.degrees(np.arctan(mu))
+
+def phi_to_mu(phi):
+    return np.tan(np.radians(phi))
         
 
 def linfunc(a,b,x):

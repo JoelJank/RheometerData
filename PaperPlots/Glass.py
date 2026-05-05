@@ -1,5 +1,4 @@
-import matplotlib
-from Functions.functions import read_data, split_dataframe, fitting, linfunc, extract_water_content, extract_pressure
+from Functions.functions import read_data, split_dataframe, fitting, linfunc, extract_water_content, extract_pressure, mu_to_phi, phi_to_mu
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
@@ -240,12 +239,6 @@ def expfitfunc(x, tau_c_infty, c, b):
     y = tau_c_infty*(1-c*np.exp(-b*x))
     return y
 
-def mu_to_phi(mu):
-    return np.degrees(np.arctan(mu))
-
-def phi_to_mu(phi):
-    return np.tan(np.radians(phi))
-
 richefeu = pd.read_csv("RIchefeu_data/richefeu.csv", sep = ";", header = None, decimal = ",")
 
 results_markersize = 10
@@ -285,10 +278,10 @@ tau_fitted = expfitfunc(w_smooth, *exp_fit)
 
 ax2[0].plot(w_smooth, tau_fitted, linestyle = '--', color = 'gray')
 ax2[0].plot(richefeu[0]*100, richefeu[1], linestyle='None', marker='o', 
-            color='tab:blue', markerfacecolor = 'none', markeredgewidth = 1.5, 
+            markeredgecolor='tab:blue', markerfacecolor = 'none', markeredgewidth = 1.5, 
             markersize = 10, label = 'Richefeu et al. 2006')
 
-ax2[0].set_ylabel(r"$\tau_c$ [kPa]")
+ax2[0].set_ylabel(r"$\tau_c$ [Pa]")
 ax2[0].set_ylim(0, 850)
 ax2[0].yaxis.set_major_locator(MultipleLocator(200))
 ax2[0].legend(loc = 'best', fontsize = 10, frameon = True, fancybox = True, shadow = False)
