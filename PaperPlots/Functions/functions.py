@@ -114,6 +114,14 @@ def extract_water_content(key):
         return '0'
     return None
 
+def extract_particlediameter(key):
+    import re
+    match = re.search(r'(\d+)\s*micron', key)
+    if match:
+        return f"{match.group(1)} micron"
+    else:
+        return None
+
 def extract_pressure(key):
     import re
     match = re.search(r'_(3|6|9|15)kPa$', key)
